@@ -1,0 +1,22 @@
+[user]
+	name = Marc Pont
+	email = mpont91@gmail.com
+
+[core]
+	editor = vim
+	ignorecase = false
+
+[help]
+	autocorrect = 1
+
+[fetch]
+	prune = true
+
+[push]
+	autoSetupRemote = true
+
+[init]
+	defaultBranch = master
+
+[pull]
+	rebase = true

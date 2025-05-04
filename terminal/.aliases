@@ -1,0 +1,70 @@
+#!/bin/bash
+
+# ─── Basic Navigation ────────────────────────────────────────────────────────
+alias c='clear'
+alias ..='cd ..'
+alias ...='cd ../..'
+
+# ─── Listing Files ───────────────────────────────────────────────────────────
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -alF'
+
+# ─── Docker ──────────────────────────────────────────────────────────────────
+alias dc='docker compose'
+
+# ─── Git Shortcuts ───────────────────────────────────────────────────────────
+alias g='git'
+alias ga='git add'
+alias gaa='git add --all'
+alias gb='git branch'
+alias gbd='git branch --delete'
+alias gc='git commit -v'
+alias gc!='git commit -v --amend'
+alias gcm='git commit -m'
+alias gco='git checkout'
+alias gd='git diff'
+alias gl='git pull'
+alias gm='git merge'
+alias gp='git push'
+alias gru='git reset --'
+alias gst='git status'
+alias glg='git log --stat'
+
+# ─── Git Workflows ───────────────────────────────────────────────────────────
+
+# Amend last commit with current staged changes
+amend() {
+  git add . && git commit --amend --no-edit
+}
+
+# Force push the current branch
+force() {
+  git push --force
+}
+
+# Clean untracked files and reset all changes
+nuke() {
+    git clean -df && git reset --hard
+}
+
+# Undo last commit but keep changes staged
+undo() {
+  git reset --soft HEAD~1
+}
+
+# Quick stash and pop
+alias stash='git stash -u'
+alias pop='git stash pop'
+
+# Work in progress commit
+alias wip='git add . && git commit -m wip'
+
+# ─── Git Deployment (Development & Preprod) ──────────────────────────────────
+
+deploy-test() {
+  echo "Deploying to development and preprod..."
+  gco development && git pull && git merge - && git push
+  gco - && gco preprod && git pull && git merge - && git push
+  gco -
+}

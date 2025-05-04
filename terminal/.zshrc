@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="eastwood"
 
 # Plugins
-plugins=()
+plugins=(zsh-autosuggestions zsh-syntax-highlighting)
 
 # Load Oh My Zsh
 source $ZSH/oh-my-zsh.sh

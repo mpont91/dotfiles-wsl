@@ -1,4 +1,4 @@
-.PHONY: install nvm ohmyzsh zsh link
+.PHONY: install nvm ohmyzsh link zsh
 
 install:
 	./install.sh
@@ -12,3 +12,5 @@ ohmyzsh:
 link:
 	./link-dotfiles.sh
 
+zsh:
+	chsh -s $$(which zsh)

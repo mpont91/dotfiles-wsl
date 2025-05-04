@@ -58,3 +58,11 @@ Links your configuration files (.zshrc, .aliases, .vimrc, .gitconfig, etc.) to y
 ```bash
 make link
 ```
+
+### 6. ZSH
+
+Set default shell ZSH
+
+```bash
+make zsh
+```

@@ -35,7 +35,23 @@ Installs all packages needed.
 make install
 ```
 
-### 3. Create symlinks
+### 3. Install NVM
+
+Installs NVM
+
+```bash
+make nvm
+```
+
+### 4. Install Oh My Zsh
+
+Installs Oh My Zsh (only if not already present) without modifying .zshrc.
+
+```bash
+make ohmyzsh
+```
+
+### 5. Create symlinks
 
 Links your configuration files (.zshrc, .aliases, .vimrc, .gitconfig, etc.) to your home directory.
 

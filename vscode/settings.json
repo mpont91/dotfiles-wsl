@@ -1,0 +1,23 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "always"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "eslint.validate": ["javascript", "typescript", "vue", "astro"],
+  "eslint.run": "onSave",
+  "files.autoSave": "onFocusChange",
+  "files.exclude": {
+    "**/.idea": true
+  },
+  "files.trimTrailingWhitespace": true,
+  "git.confirmSync": false,
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "search.exclude": {
+    "**/.idea": true
+  },
+  "workbench.editor.showTabs": "none",
+  "workbench.colorTheme": "One Dark Pro",
+  "workbench.iconTheme": "material-icon-theme"
+}

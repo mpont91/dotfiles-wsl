@@ -66,3 +66,16 @@ Set default shell ZSH
 ```bash
 make zsh
 ```
+
+### 7. VS Code (manual step)
+
+All configurations are inside vscode folder.
+Just apply them and install the extensions.
+
+1. Apply settings: `Ctrl+Shift+P` and search for `Open User Settings (JSON)` and paste the settings.json content.
+
+2. Apply keybindings: `Ctrl+Shift+P` and search for `Open Keyboard Shortcuts (JSON)` and paste the keybindigs.json content.
+
+3. Create snippets: `Ctrl+Shift+P` and search for `Configure Snippets` --> `New Global Snippets file...` And paste the contents.
+
+4. Install extensions: Go to extensions tab and install them all.

@@ -1,0 +1,16 @@
+{
+  "Astro component boilerplate": {
+    "prefix": "astro",
+    "scope": "astro",
+    "body": [
+      "---",
+      "// Props can be passed here",
+      "---",
+      "",
+      "<div>",
+      "  $0",
+      "</div>"
+    ],
+    "description": "Basic Astro component structure"
+  }
+}

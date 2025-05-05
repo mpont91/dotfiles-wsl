@@ -1,0 +1,22 @@
+{
+  "Vue SFC Boilerplate": {
+    "prefix": "vfc",
+    "scope": "vue",
+    "body": [
+      "<template>",
+      "  <div>",
+      "    $0",
+      "  </div>",
+      "</template>",
+      "",
+      "<script lang=\"ts\" setup>",
+      "// Your script logic here",
+      "</script>",
+      "",
+      "<style scoped>",
+      "/* Your styles here */",
+      "</style>"
+    ],
+    "description": "Vue single file component"
+  }
+}

@@ -1,6 +1,5 @@
 [user]
 	name = Marc Pont
-	email = mpont91@gmail.com
 
 [core]
 	editor = vim
@@ -17,3 +16,9 @@
 
 [init]
 	defaultBranch = master
+
+[includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
+    path = ~/.gitconfig-github
+
+[includeIf "hasconfig:remote.*.url:git@bitbucket.org:*/**"]
+    path = ~/.gitconfig-bitbucket

@@ -31,7 +31,20 @@ It will install automatically ubuntu distro which is fine.
 **For the next steps, open WSL and follow the instructions.**
 **Almost everything is intended to run inside WSL, otherwise will be indicated.**
 
-## 🚀 Installation
+### SSH Configuration (github & bitbucket)
+
+You need to create both ssh keys:
+
+```bash
+ssh-keygen -t rsa -f ~/.ssh/github
+ssh-keygen -t rsa -f ~/.ssh/bitbucket
+```
+
+Save both public keys in github and bitbucket accounts.
+
+Then with the script to link dotfiles will be automatically configured to use both keys.
+
+## 🚀 Installation (inside WSL)
 
 First, clone this repository into your home directory with the default name `.dotfiles`:
 
@@ -41,7 +54,7 @@ git clone git@github.com:mpont91/dotfiles-wsl.git ~/.dotfiles
 
 Then run the setup using the provided Makefile commands:
 
-## 🔧 Setup Steps
+## 🔧 Setup Steps (inside WSL)
 
 ### 1. Install make
 

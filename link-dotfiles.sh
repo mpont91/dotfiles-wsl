@@ -23,6 +23,13 @@ echo
 # ─── Git ────────────────────────────────────────────────────────────────────
 echo "Setting up git..."
 link_file "$DOTFILES/git/.gitconfig" "$HOME/.gitconfig"
+link_file "$DOTFILES/git/.gitconfig-github" "$HOME/.gitconfig-github"
+link_file "$DOTFILES/git/.gitconfig-bitbucket" "$HOME/.gitconfig-bitbucket"
+echo
+
+# ─── SSH ────────────────────────────────────────────────────────────────────
+echo "Setting up ssh..."
+link_file "$DOTFILES/ssh/ssh-config" "$HOME/.ssh/config"
 echo
 
 # ─── Terminal ───────────────────────────────────────────────────────────────

@@ -1,6 +1,6 @@
-# ⚙️ Dotfiles Linux
+# ⚙️ Dotfiles WSL (windows with WSL)
 
-This repository contains my personal dotfiles to set up and maintain a clean development environment on Linux OS.
+This repository contains my personal dotfiles to set up and maintain a clean development environment on Windows using WSL.
 
 It includes configuration for:
 
@@ -8,13 +8,35 @@ It includes configuration for:
 - Git
 - Vim
 - Editor and tool preferences
+- VS Code
+- Android studio
+
+## 🪟 Windows setup
+
+List of applications to install:
+
+- VS Code
+- Android Studio
+- Brave
+- PowerToys
+- Microsoft Teams
+- Microsoft Office
+- Spotify
+
+Install WSL:
+
+Open a powershell and run: `wsl --install`
+It will install automatically ubuntu distro which is fine.
+
+**For the next steps, open WSL and follow the instructions.**
+**Almost everything is intended to run inside WSL, otherwise will be indicated.**
 
 ## 🚀 Installation
 
 First, clone this repository into your home directory with the default name `.dotfiles`:
 
 ```bash
-git clone git@github.com:mpont91/dotfiles-linux.git ~/.dotfiles
+git clone git@github.com:mpont91/dotfiles-wsl.git ~/.dotfiles
 ```
 
 Then run the setup using the provided Makefile commands:
@@ -67,7 +89,7 @@ Set default shell ZSH
 make zsh
 ```
 
-### 7. VS Code (manual step)
+### 7. VS Code (Windows side)
 
 All configurations are inside vscode folder.
 Just apply them and install the extensions.
@@ -79,3 +101,17 @@ Just apply them and install the extensions.
 3. Create snippets: `Ctrl+Shift+P` and search for `Configure Snippets` --> `New Global Snippets file...` And paste the contents.
 
 4. Install extensions: Go to extensions tab and install them all.
+
+### 8. Android Studio (Windows side)
+
+After installing the Android Studio in windows side.
+Applications created with Expo tries to execute adb without extension.
+So you need to create a symlink for that, as in windows the file is named as `adb.exe`
+
+1. Run `cmd.exe` as administrator (not powershell).
+
+2. Go to sdk platform tools, probably this path:
+   `cd C:\Users\USER\AppData\Local\Android\sdk\platform-tools`
+
+3. Create the symlink:
+   `mklink adb adb.exe`

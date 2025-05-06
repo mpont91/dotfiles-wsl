@@ -15,3 +15,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Aliases
 source $DOTFILES/terminal/.aliases
+
+# Load NVM
+source $DOTFILES/terminal/nvm-config.zsh
+
+# Load Android Studio SDK
+source $DOTFILES/terminal/android-studio-config.zsh

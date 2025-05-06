@@ -29,7 +29,6 @@ echo
 echo "Setting up terminal..."
 link_file "$DOTFILES/terminal/.aliases" "$HOME/.aliases"
 link_file "$DOTFILES/terminal/.zshrc" "$HOME/.zshrc"
-link_file "$DOTFILES/terminal/.zprofile" "$HOME/.zprofile"
 echo
 
 echo "All symlinks created successfully!"

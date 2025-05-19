@@ -17,6 +17,7 @@ sudo apt install -y \
     openssh-client \
     imagemagick \
     tldr \
-    webp
+    webp \
+    sqlite3
 
 echo "All packages installed successfully!"

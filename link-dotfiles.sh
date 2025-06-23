@@ -23,13 +23,8 @@ echo
 # ─── Git ────────────────────────────────────────────────────────────────────
 echo "Setting up git..."
 link_file "$DOTFILES/git/.gitconfig" "$HOME/.gitconfig"
-link_file "$DOTFILES/git/.gitconfig-github" "$HOME/.gitconfig-github"
-link_file "$DOTFILES/git/.gitconfig-bitbucket" "$HOME/.gitconfig-bitbucket"
-echo
-
-# ─── SSH ────────────────────────────────────────────────────────────────────
-echo "Setting up ssh..."
-link_file "$DOTFILES/ssh/ssh-config" "$HOME/.ssh/config"
+link_file "$DOTFILES/git/.gitconfig-present-connection" "$HOME/.gitconfig-present-connection"
+link_file "$DOTFILES/git/.gitconfig-victoria-id" "$HOME/.gitconfig-victoria-id"
 echo
 
 # ─── Terminal ───────────────────────────────────────────────────────────────

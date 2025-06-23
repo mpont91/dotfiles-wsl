@@ -1,0 +1,5 @@
+[user]
+    email = marc.pont@victoria-id.com
+
+[core]
+    sshCommand = ssh -i ~/.ssh/victoria-github

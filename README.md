@@ -31,16 +31,17 @@ It will install automatically ubuntu distro which is fine.
 **For the next steps, open WSL and follow the instructions.**
 **Almost everything is intended to run inside WSL, otherwise will be indicated.**
 
-### SSH Configuration (github & bitbucket)
+### SSH Configuration (Peronal, PC and Victoria-id)
 
-You need to create both ssh keys:
+You need to create the following ssh keys:
 
 ```bash
-ssh-keygen -t rsa -f ~/.ssh/github
-ssh-keygen -t rsa -f ~/.ssh/bitbucket
+ssh-keygen -t rsa -f ~/.ssh/personal-github
+ssh-keygen -t rsa -f ~/.ssh/pc-bitbucket
+ssh-keygen -t rsa -f ~/.ssh/victoria-github
 ```
 
-Save both public keys in github and bitbucket accounts.
+Save the public keys in github and bitbucket accounts.
 
 Then with the script to link dotfiles will be automatically configured to use both keys.
 

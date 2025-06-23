@@ -1,9 +1,11 @@
 [user]
 	name = Marc Pont
+	email = mpont91@gmail.com
 
 [core]
 	editor = vim
 	ignorecase = false
+	sshCommand = ssh -i ~/.ssh/personal-github
 
 [help]
 	autocorrect = 1
@@ -17,8 +19,8 @@
 [init]
 	defaultBranch = master
 
-[includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
-    path = ~/.gitconfig-github
+[includeIf "gitdir:~/projects/victoria-id/"]
+    path = ~/.gitconfig-victoria-id
 
-[includeIf "hasconfig:remote.*.url:git@bitbucket.org:*/**"]
-    path = ~/.gitconfig-bitbucket
+[includeIf "gitdir:~/projects/present-connection/"]
+    path = ~/.gitconfig-present-connection

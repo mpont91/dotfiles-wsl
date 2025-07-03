@@ -33,4 +33,10 @@ link_file "$DOTFILES/terminal/.aliases" "$HOME/.aliases"
 link_file "$DOTFILES/terminal/.zshrc" "$HOME/.zshrc"
 echo
 
+# ─── Jetbrains ───────────────────────────────────────────────────────────────
+echo "Setting up jetbrains executables..."
+mkdir -p "$HOME/.local/bin"
+link_file "$DOTFILES/jetbrains/webstorm" "$HOME/.local/bin/webstorm"
+echo
+
 echo "All symlinks created successfully!"

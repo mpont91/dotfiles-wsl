@@ -1,6 +1,9 @@
 # Path to your dotfiles
 export DOTFILES=$HOME/.dotfiles
 
+# Custom paths
+export PATH="$HOME/.local/bin:$PATH"
+
 # Path to your oh-my-zsh installation
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -21,3 +24,7 @@ source $DOTFILES/terminal/nvm-config.zsh
 
 # Load Android Studio SDK
 source $DOTFILES/terminal/android-studio-config.zsh
+
+# IDE configuration
+export VISUAL="webstorm"
+export EDITOR="vim"

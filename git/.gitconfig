@@ -6,7 +6,6 @@
 	editor = vim
 	ignorecase = false
 	sshCommand = ssh -i ~/.ssh/personal-github
-    autocrlf = true
 
 [help]
 	autocorrect = 1

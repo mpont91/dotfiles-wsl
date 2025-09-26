@@ -31,7 +31,7 @@ It will install automatically ubuntu distro which is fine.
 **For the next steps, open WSL and follow the instructions.**
 **Almost everything is intended to run inside WSL, otherwise will be indicated.**
 
-### SSH Configuration (Peronal, PC and Victoria-id)
+### SSH Configuration (Personal, PC and Victoria-id)
 
 You need to create the following ssh keys:
 
@@ -44,6 +44,32 @@ ssh-keygen -t rsa -f ~/.ssh/victoria-github
 Save the public keys in github and bitbucket accounts.
 
 Then with the script to link dotfiles will be automatically configured to use both keys.
+
+#### GPG configuration
+
+For Victoria-id is needed to have gpg signed commits.
+
+1. Create the gpg key:
+
+   ```bash
+   gpg --full-generate-key
+   ```
+
+2. To list all gpg entries
+
+   ```bash
+   gpg --list-secret-keys
+   ```
+   
+3. Export public key (replace id key)
+
+   ```bash
+   gpg --armor --export AABBCCDD11223344
+   ```
+   
+4. Replace gitconfig file `git/.gitconfig-victoria-id`:
+
+   `signingkey = AABBCCDD11223344`
 
 ## 🚀 Installation (inside WSL)
 

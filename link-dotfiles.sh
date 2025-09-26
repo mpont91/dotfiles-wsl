@@ -27,6 +27,11 @@ link_file "$DOTFILES/git/.gitconfig-present-connection" "$HOME/.gitconfig-presen
 link_file "$DOTFILES/git/.gitconfig-victoria-id" "$HOME/.gitconfig-victoria-id"
 echo
 
+# ─── SSH ────────────────────────────────────────────────────────────────────
+echo "Setting up ssh..."
+link_file "$DOTFILES/ssh/config" "$HOME/.ssh/config"
+echo
+
 # ─── Terminal ───────────────────────────────────────────────────────────────
 echo "Setting up terminal..."
 link_file "$DOTFILES/terminal/.aliases" "$HOME/.aliases"

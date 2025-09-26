@@ -1,5 +1,6 @@
 [user]
     email = marc.pont@victoria-id.com
+    signingkey = A485643AA1D41F243BBEE13753BE1DD6D6FE8E3F
 
-[core]
-    sshCommand = ssh -i ~/.ssh/victoria-github
+[commit]
+    gpgsign = true

@@ -1,0 +1,23 @@
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/personal-github
+    IdentitiesOnly yes
+
+Host pdf-lib.github.com.alias.victoria-id.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/victoria-github
+    IdentitiesOnly yes
+
+Host github.com-victoria-id
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/victoria-github
+    IdentitiesOnly yes
+
+Host bitbucket.org-presentconnection
+    HostName bitbucket.org
+    User git
+    IdentityFile ~/.ssh/pc-bitbucket
+    IdentitiesOnly yes

@@ -23,3 +23,7 @@
 
 [includeIf "gitdir:~/projects/present-connection/"]
     path = ~/.gitconfig-present-connection
+
+[url "git@github.com-victoria-id:victoria-id/"]
+    insteadOf = git@github.com:victoria-id/
+    insteadOf = ssh://git@github.com/victoria-id/

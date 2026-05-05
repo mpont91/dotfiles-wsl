@@ -18,6 +18,7 @@ sudo apt install -y \
     imagemagick \
     tldr \
     webp \
-    sqlite3
+    sqlite3 \
+    gh
 
 echo "All packages installed successfully!"

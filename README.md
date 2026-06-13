@@ -140,7 +140,17 @@ Installs Claude
 make claude
 ```
 
-### 9. Android Studio (Windows side)
+### 9. Projects structure
+
+Creates the `~/projects/<context>` folders (personal, present-connection,
+victoria-id). These match the `includeIf` rules in `.gitconfig`, so each context
+uses the right git identity/SSH key. Existing folders are left untouched.
+
+```bash
+make projects
+```
+
+### 10. Android Studio (Windows side)
 
 After installing the Android Studio in windows side.
 Applications created with Expo tries to execute adb without extension.

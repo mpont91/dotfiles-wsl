@@ -1,4 +1,4 @@
-.PHONY: install claude nvm ohmyzsh link zsh
+.PHONY: install claude nvm ohmyzsh link zsh projects
 
 install:
 	./install.sh
@@ -17,3 +17,6 @@ link:
 
 zsh:
 	chsh -s $$(which zsh)
+
+projects:
+	./projects-setup.sh

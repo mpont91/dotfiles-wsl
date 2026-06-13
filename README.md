@@ -103,7 +103,20 @@ Installs Oh My Zsh (only if not already present) without modifying .zshrc.
 make ohmyzsh
 ```
 
-### 5. Create symlinks
+### 5. Machine-local config
+
+Some values are specific to each machine (e.g. your Windows username, used for
+`ANDROID_HOME` and the WebStorm launcher). They live in a gitignored file so you
+can change them without creating pending git changes.
+
+Copy the template and fill in your values:
+
+```bash
+cp terminal/local-config.zsh.example terminal/local-config.zsh
+# then edit terminal/local-config.zsh and set WINDOWS_USER to your Windows username `mpont`
+```
+
+### 6. Create symlinks
 
 Links your configuration files (.zshrc, .aliases, .vimrc, .gitconfig, etc.) to your home directory.
 
@@ -111,7 +124,7 @@ Links your configuration files (.zshrc, .aliases, .vimrc, .gitconfig, etc.) to y
 make link
 ```
 
-### 6. ZSH
+### 7. ZSH
 
 Set default shell ZSH
 
@@ -119,7 +132,7 @@ Set default shell ZSH
 make zsh
 ```
 
-### 7. Install Claude
+### 8. Install Claude
 
 Installs Claude
 
@@ -127,7 +140,7 @@ Installs Claude
 make claude
 ```
 
-### 8. Android Studio (Windows side)
+### 9. Android Studio (Windows side)
 
 After installing the Android Studio in windows side.
 Applications created with Expo tries to execute adb without extension.

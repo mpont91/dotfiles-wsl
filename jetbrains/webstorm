@@ -1,2 +1,2 @@
 #!/bin/bash
-/mnt/c/Users/mpont/AppData/Local/JetBrains/Toolbox/scripts/webstorm.cmd "$@"
+/mnt/c/Users/$WINDOWS_USER/AppData/Local/JetBrains/Toolbox/scripts/webstorm.cmd "$@"

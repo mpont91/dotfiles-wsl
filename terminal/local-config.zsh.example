@@ -1,0 +1,5 @@
+# Machine-local config. Copy this file to `local-config.zsh` (gitignored) and
+# fill in the values for this machine. Do NOT commit `local-config.zsh`.
+
+# Your Windows username (the folder name under C:\Users\...)
+export WINDOWS_USER="your-windows-username"

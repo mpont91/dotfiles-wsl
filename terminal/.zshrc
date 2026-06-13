@@ -16,6 +16,9 @@ plugins=(zsh-autosuggestions zsh-syntax-highlighting gh)
 # Load Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
+# Machine-local config (gitignored, e.g. WINDOWS_USER)
+[ -f "$DOTFILES/terminal/local-config.zsh" ] && source $DOTFILES/terminal/local-config.zsh
+
 # Aliases
 source $DOTFILES/terminal/.aliases
 

@@ -8,20 +8,10 @@ It includes configuration for:
 - Git
 - Vim
 - Editor and tool preferences
-- VS Code
+- Jetbrains
 - Android studio
 
 ## 🪟 Windows setup
-
-List of applications to install:
-
-- VS Code
-- Android Studio
-- Brave
-- PowerToys
-- Microsoft Teams
-- Microsoft Office
-- Spotify
 
 Install WSL:
 
@@ -31,9 +21,9 @@ It will install automatically ubuntu distro which is fine.
 **For the next steps, open WSL and follow the instructions.**
 **Almost everything is intended to run inside WSL, otherwise will be indicated.**
 
-### SSH Configuration (Personal, PC and Victoria-id)
+### SSH Configuration (Personal, PresentConnection and Victoria-id)
 
-You need to create the following ssh keys:
+Create the following ssh keys:
 
 ```bash
 ssh-keygen -t rsa -f ~/.ssh/personal-github
@@ -45,7 +35,7 @@ Save the public keys in github and bitbucket accounts.
 
 Then with the script to link dotfiles will be automatically configured to use both keys.
 
-#### GPG configuration
+#### GPG configuration (only for Victoria-ID)
 
 For Victoria-id is needed to have gpg signed commits.
 
@@ -76,7 +66,7 @@ For Victoria-id is needed to have gpg signed commits.
 First, clone this repository into your home directory with the default name `.dotfiles`:
 
 ```bash
-git clone git@github.com:mpont91/dotfiles-wsl.git ~/.dotfiles
+GIT_SSH_COMMAND="ssh -i ~/.ssh/personal-github -o IdentitiesOnly=yes" git clone git@github.com:mpont91/dotfiles-wsl.git ~/.dotfiles
 ```
 
 Then run the setup using the provided Makefile commands:
@@ -136,7 +126,6 @@ Installs Claude
 ```bash
 make claude
 ```
-
 
 ### 8. Android Studio (Windows side)
 

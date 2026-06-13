@@ -16,7 +16,6 @@ sudo apt install -y \
     tree \
     openssh-client \
     imagemagick \
-    tldr \
     webp \
     sqlite3 \
     gh

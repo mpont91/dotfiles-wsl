@@ -1,10 +1,13 @@
-.PHONY: install nvm ohmyzsh link zsh
+.PHONY: install claude nvm ohmyzsh link zsh
 
 install:
 	./install.sh
 
 nvm:
 	./nvm/nvm-install.sh
+
+claude:
+	./claude/claude-install.sh
 
 ohmyzsh:
 	./ohmyzsh/ohmyzsh-install.sh		

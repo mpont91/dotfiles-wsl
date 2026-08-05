@@ -1,19 +1,10 @@
-.PHONY: install claude nvm ohmyzsh link zsh projects
+.PHONY: install config zsh projects
 
 install:
 	./install.sh
 
-nvm:
-	./nvm/nvm-install.sh
-
-claude:
-	./claude/claude-install.sh
-
-ohmyzsh:
-	./ohmyzsh/ohmyzsh-install.sh		
-
-link:
-	./link-dotfiles.sh
+config:
+	./config.sh
 
 zsh:
 	chsh -s $$(which zsh)

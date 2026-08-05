@@ -44,4 +44,4 @@ mkdir -p "$HOME/.local/bin"
 link_file "$DOTFILES/jetbrains/webstorm" "$HOME/.local/bin/webstorm"
 echo
 
-echo "All symlinks created successfully!"
+echo "All configs created successfully!"

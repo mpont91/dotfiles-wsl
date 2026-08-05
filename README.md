@@ -81,29 +81,13 @@ sudo apt install make
 
 ### 2. Install packages
 
-Installs all packages needed.
+Installs all needed.
 
 ```bash
 make install
 ```
 
-### 3. Install NVM
-
-Installs NVM
-
-```bash
-make nvm
-```
-
-### 4. Install Oh My Zsh
-
-Installs Oh My Zsh (only if not already present) without modifying .zshrc.
-
-```bash
-make ohmyzsh
-```
-
-### 5. Machine-local config
+### 3. Machine-local config
 
 Some values are specific to each machine (e.g. your Windows username, used for
 `ANDROID_HOME` and the WebStorm launcher). They live in a gitignored file so you
@@ -116,15 +100,15 @@ cp terminal/local-config.zsh.example terminal/local-config.zsh
 # then edit terminal/local-config.zsh and set WINDOWS_USER to your Windows username `mpont`
 ```
 
-### 6. Create symlinks
+### 4. Create config
 
 Links your configuration files (.zshrc, .aliases, .vimrc, .gitconfig, etc.) to your home directory.
 
 ```bash
-make link
+make config
 ```
 
-### 7. ZSH
+### 5. ZSH
 
 Set default shell ZSH
 
@@ -132,15 +116,7 @@ Set default shell ZSH
 make zsh
 ```
 
-### 8. Install Claude
-
-Installs Claude
-
-```bash
-make claude
-```
-
-### 9. Projects structure
+### 6. Projects structure
 
 Creates the `~/projects/<context>` folders (personal, present-connection,
 victoria-id). These match the `includeIf` rules in `.gitconfig`, so each context
@@ -150,7 +126,7 @@ uses the right git identity/SSH key. Existing folders are left untouched.
 make projects
 ```
 
-### 10. Android Studio (Windows side)
+### 7. Android Studio (Windows side)
 
 After installing the Android Studio in windows side.
 Applications created with Expo tries to execute adb without extension.

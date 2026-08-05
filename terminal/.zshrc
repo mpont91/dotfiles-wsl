@@ -25,6 +25,9 @@ source $DOTFILES/terminal/.aliases
 # Load NVM
 source $DOTFILES/terminal/nvm-config.zsh
 
+# Load pyenv
+source $DOTFILES/terminal/pyenv-config.zsh
+
 # Load Android Studio SDK
 source $DOTFILES/terminal/android-studio-config.zsh
 

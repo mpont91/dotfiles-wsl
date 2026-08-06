@@ -1,10 +1,27 @@
 #!/bin/bash
 
-echo "Installing packages..."
+echo "Configuring repositories..."
 
+sudo apt update
+sudo apt install -y curl ca-certificates
+
+if [ ! -f /etc/apt/keyrings/docker.asc ]; then
+    echo "Adding Docker GPG key and repository..."
+    sudo install -m 0755 -d /etc/apt/keyrings
+    sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+    sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+    echo \
+      "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+      $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+      sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+fi
+
+echo "Updating and upgrading system packages..."
 sudo apt update
 sudo apt upgrade -y
 
+echo "Installing all required packages..."
 sudo apt install -y \
     zsh \
     build-essential \
@@ -31,7 +48,15 @@ sudo apt install -y \
     tk-dev \
     libffi-dev \
     liblzma-dev \
-    python3-openssl
+    python3-openssl \
+    docker-ce \
+    docker-ce-cli \
+    containerd.io \
+    docker-buildx-plugin \
+    docker-compose-plugin
+
+echo "Configuring Docker permissions..."
+sudo usermod -aG docker $USER
 
 echo "All packages installed successfully!"
 
@@ -86,4 +111,4 @@ else
     echo "Claude is already installed. Skipping."
 fi
 
-echo "🚀 Dotfiles installation completed successfully!"
+echo "🚀 Dotfiles installation completed successfully! Remember to restart your terminal for Docker permissions to take effect."

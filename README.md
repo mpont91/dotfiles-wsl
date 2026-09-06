@@ -2,26 +2,21 @@
 
 This repository contains my personal dotfiles to set up and maintain a clean development environment on Windows using WSL.
 
-It includes configuration for:
-
-- Terminal (Zsh + Oh My Zsh)
-- Git
-- Vim
-- Editor and tool preferences
-- Jetbrains
-- Android studio
-
 ## 🪟 Windows setup
 
-Install WSL:
+### WSL installation:
 
-Open a powershell and run: `wsl --install`
+Open a powershell with admin rights and run: `wsl --install`  or `wsl --update` for troubleshooting.
 It will install automatically ubuntu distro which is fine.
 
 **For the next steps, open WSL and follow the instructions.**
 **Almost everything is intended to run inside WSL, otherwise will be indicated.**
 
-### SSH Configuration (Personal, PresentConnection and Victoria-id)
+### SSH Configuration (only personal environment)
+Create or import from bitwarden your personal ssh-key.
+There will be only one ssh key: private: `id_ed25519`, public: `id_ed25519.pub`
+
+### SSH Configuration (Personal, PresentConnection and Victoria-id all together)
 
 Create the following ssh keys:
 
@@ -87,28 +82,15 @@ Installs all needed.
 make install
 ```
 
-### 3. Machine-local config
+### 3. Create config
 
-Some values are specific to each machine (e.g. your Windows username, used for
-`ANDROID_HOME` and the WebStorm launcher). They live in a gitignored file so you
-can change them without creating pending git changes.
-
-Copy the template and fill in your values:
-
-```bash
-cp terminal/local-config.zsh.example terminal/local-config.zsh
-# then edit terminal/local-config.zsh and set WINDOWS_USER to your Windows username `mpont`
-```
-
-### 4. Create config
-
-Links your configuration files (.zshrc, .aliases, .vimrc, .gitconfig, etc.) to your home directory.
+Links your configuration files (.zshrc, .aliases, .gitconfig, etc.) to your home directory.
 
 ```bash
 make config
 ```
 
-### 5. ZSH
+### 4. ZSH
 
 Set default shell ZSH
 
@@ -116,7 +98,7 @@ Set default shell ZSH
 make zsh
 ```
 
-### 6. Projects structure
+### 5. Projects structure
 
 Creates the `~/projects/<context>` folders (personal, present-connection,
 victoria-id). These match the `includeIf` rules in `.gitconfig`, so each context
@@ -125,17 +107,3 @@ uses the right git identity/SSH key. Existing folders are left untouched.
 ```bash
 make projects
 ```
-
-### 7. Android Studio (Windows side)
-
-After installing the Android Studio in windows side.
-Applications created with Expo tries to execute adb without extension.
-So you need to create a symlink for that, as in windows the file is named as `adb.exe`
-
-1. Run `cmd.exe` as administrator (not powershell).
-
-2. Go to sdk platform tools, probably this path:
-   `cd C:\Users\USER\AppData\Local\Android\sdk\platform-tools`
-
-3. Create the symlink:
-   `mklink adb adb.exe`

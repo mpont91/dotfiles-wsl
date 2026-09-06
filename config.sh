@@ -15,11 +15,6 @@ link_file() {
   echo "Linked $(basename "$src") → $dest"
 }
 
-# ─── Editors ────────────────────────────────────────────────────────────────
-echo "Setting up editors..."
-link_file "$DOTFILES/editors/vim/.vimrc" "$HOME/.vimrc"
-echo
-
 # ─── Git ────────────────────────────────────────────────────────────────────
 echo "Setting up git..."
 link_file "$DOTFILES/git/.gitconfig" "$HOME/.gitconfig"
@@ -36,12 +31,6 @@ echo
 echo "Setting up terminal..."
 link_file "$DOTFILES/terminal/.aliases" "$HOME/.aliases"
 link_file "$DOTFILES/terminal/.zshrc" "$HOME/.zshrc"
-echo
-
-# ─── Jetbrains ───────────────────────────────────────────────────────────────
-echo "Setting up jetbrains executables..."
-mkdir -p "$HOME/.local/bin"
-link_file "$DOTFILES/jetbrains/webstorm" "$HOME/.local/bin/webstorm"
 echo
 
 echo "All configs created successfully!"

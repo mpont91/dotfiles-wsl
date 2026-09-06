@@ -59,12 +59,3 @@ alias pop='git stash pop'
 
 # Work in progress commit
 alias wip='git add . && git commit -m wip'
-
-# ─── Git Deployment (Development & Preprod) ──────────────────────────────────
-
-deploy-test() {
-  echo "Deploying to development and preprod..."
-  gco development && git pull && git merge - && git push
-  gco - && gco preprod && git pull && git merge - && git push
-  gco -
-}

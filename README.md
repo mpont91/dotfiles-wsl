@@ -13,15 +13,21 @@ It will install automatically ubuntu distro which is fine.
 **Almost everything is intended to run inside WSL, otherwise will be indicated.**
 
 ### SSH Configuration (only personal environment)
-Create or import from bitwarden your personal ssh-key.
-There will be only one ssh key: private: `id_ed25519`, public: `id_ed25519.pub`
+
+Create or import from bitwarden your personal ssh-key at the default path —
+no `ssh/config` entry needed, ssh picks it up automatically:
+
+```bash
+ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519
+```
+
+Save the public key in your github account.
 
 ### SSH Configuration (Personal, PresentConnection and Victoria-id all together)
 
-Create the following ssh keys:
+On top of the default personal key above, create the work-specific keys:
 
 ```bash
-ssh-keygen -t rsa -f ~/.ssh/personal-github
 ssh-keygen -t rsa -f ~/.ssh/pc-bitbucket
 ssh-keygen -t rsa -f ~/.ssh/victoria-github
 ```
@@ -61,7 +67,7 @@ For Victoria-id is needed to have gpg signed commits.
 First, clone this repository into your home directory with the default name `.dotfiles`:
 
 ```bash
-GIT_SSH_COMMAND="ssh -i ~/.ssh/personal-github -o IdentitiesOnly=yes" git clone git@github.com:mpont91/dotfiles-wsl.git ~/.dotfiles
+git clone git@github.com:mpont91/dotfiles-wsl.git ~/.dotfiles
 ```
 
 Then run the setup using the provided Makefile commands:
@@ -100,10 +106,23 @@ make zsh
 
 ### 5. Projects structure
 
-Creates the `~/projects/<context>` folders (personal, present-connection,
-victoria-id). These match the `includeIf` rules in `.gitconfig`, so each context
-uses the right git identity/SSH key. Existing folders are left untouched.
+Creates `~/projects`. For a personal-only machine, your projects live directly
+inside it (no subfolder needed — the personal git identity is the default, so
+it applies regardless), and this is all you need:
 
 ```bash
 make projects
+```
+
+Later, on a machine that also needs PresentConnection/Victoria-id (see the SSH
+and GPG setup above), add those contexts on top. This also adds a `personal/`
+subfolder so all three sit side by side for organization — existing repos
+directly under `~/projects` are **not** moved automatically, move them into
+`personal/` yourself if you want. Each subfolder matches an `includeIf` rule in
+`.gitconfig` (personal doesn't need one, it's just the default), so repos
+cloned inside `present-connection/` or `victoria-id/` automatically get the
+right git identity/SSH key. Existing folders are left untouched.
+
+```bash
+make projects-full
 ```

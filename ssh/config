@@ -1,9 +1,3 @@
-Host github.com
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/personal-github
-    IdentitiesOnly yes
-
 Host pdf-lib.github.com.alias.victoria-id.com
     HostName github.com
     User git

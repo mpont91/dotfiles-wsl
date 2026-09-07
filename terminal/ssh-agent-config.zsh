@@ -1,0 +1,18 @@
+# Persistent ssh-agent across terminals, so ssh-forwarded git/GitHub access
+# (see ssh/config.local) doesn't need a fresh `ssh-add` every shell.
+SSH_ENV="$HOME/.ssh/agent.env"
+
+start_ssh_agent() {
+    (umask 077; ssh-agent -s > "$SSH_ENV")
+    source "$SSH_ENV" >/dev/null
+
+    # Only the personal key is guaranteed to exist. The work keys are only
+    # present on a full (present-connection/victoria-id) setup, so guard each.
+    for key in ~/.ssh/id_ed25519 ~/.ssh/pc-bitbucket ~/.ssh/victoria-github; do
+        [ -f "$key" ] && ssh-add "$key" 2>/dev/null
+    done
+}
+
+[ -f "$SSH_ENV" ] && source "$SSH_ENV" >/dev/null
+
+ssh-add -l >/dev/null 2>&1 || start_ssh_agent

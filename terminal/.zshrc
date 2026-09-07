@@ -25,5 +25,8 @@ source $DOTFILES/terminal/nvm-config.zsh
 # Load pyenv
 source $DOTFILES/terminal/pyenv-config.zsh
 
+# Load ssh-agent
+source $DOTFILES/terminal/ssh-agent-config.zsh
+
 # IDE configuration
 export EDITOR="vim"

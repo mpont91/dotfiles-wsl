@@ -1,3 +1,5 @@
+Include config.local
+
 Host pdf-lib.github.com.alias.victoria-id.com
     HostName github.com
     User git

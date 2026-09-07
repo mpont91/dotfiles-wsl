@@ -25,6 +25,9 @@ echo
 # ─── SSH ────────────────────────────────────────────────────────────────────
 echo "Setting up ssh..."
 link_file "$DOTFILES/ssh/config" "$HOME/.ssh/config"
+if [ -f "$DOTFILES/ssh/config.local" ]; then
+  link_file "$DOTFILES/ssh/config.local" "$HOME/.ssh/config.local"
+fi
 echo
 
 # ─── Terminal ───────────────────────────────────────────────────────────────

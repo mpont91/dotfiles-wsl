@@ -30,3 +30,4 @@ source $DOTFILES/terminal/ssh-agent-config.zsh
 
 # IDE configuration
 export EDITOR="vim"
+export VISUAL="webstorm"

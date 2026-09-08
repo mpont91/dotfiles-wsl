@@ -46,7 +46,9 @@ personal-only machine.
 
 ## 🏢 Victoria-id setup
 
-Only needed on a machine that also does victoria-id work.
+`make config` already links `git/.gitconfig-victoria-id` — it just sits
+dormant until a repo's remote actually matches victoria-id. Only needed on a
+machine that also does victoria-id work: the two keys below.
 
 ### 1. SSH key
 
@@ -54,15 +56,10 @@ Restore `~/.ssh/victoria-github` from password manager.
 
 ### 2. GPG signing
 
-Victoria-id commits must be GPG-signed. Restore the key from the password manager.
+Victoria-id commits must be GPG-signed. Restore the key from the password manager, then delete the file:
 
 ```bash
-gpg --import victoria-id.asc
-```
-
-Then delete the file:
-
-```bash
+gpg --import victoria-id-gpg-private.asc
 rm victoria-id-gpg-private.asc
 ```
 
@@ -96,12 +93,6 @@ rm victoria-id-gpg-private.asc
 ```
 
 </details>
-
-### 3. Link the victoria-id config
-
-```bash
-make victoria-id
-```
 
 Any repo whose remote points at `git@github.com:victoria-id/...` automatically
 picks up the victoria-id git identity and SSH key, wherever it's cloned — no

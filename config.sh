@@ -18,6 +18,7 @@ link_file() {
 # ─── Git ────────────────────────────────────────────────────────────────────
 echo "Setting up git..."
 link_file "$DOTFILES/git/.gitconfig" "$HOME/.gitconfig"
+link_file "$DOTFILES/git/.gitconfig-victoria-id" "$HOME/.gitconfig-victoria-id"
 echo
 
 # ─── SSH ────────────────────────────────────────────────────────────────────

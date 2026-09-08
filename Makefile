@@ -1,10 +1,7 @@
-.PHONY: install config victoria-id
+.PHONY: install config
 
 install:
 	./install.sh
 
 config:
 	./config.sh
-
-victoria-id:
-	./victoria-id-setup.sh

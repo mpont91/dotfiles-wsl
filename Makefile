@@ -1,4 +1,4 @@
-.PHONY: install config zsh projects projects-full
+.PHONY: install config victoria-id
 
 install:
 	./install.sh
@@ -6,11 +6,5 @@ install:
 config:
 	./config.sh
 
-zsh:
-	chsh -s $$(which zsh)
-
-projects:
-	./projects-setup.sh
-
-projects-full:
-	./projects-setup.sh present-connection victoria-id
+victoria-id:
+	./victoria-id-setup.sh

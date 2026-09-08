@@ -7,8 +7,8 @@ start_ssh_agent() {
     source "$SSH_ENV" >/dev/null
 
     # Only the personal key is guaranteed to exist. The work keys are only
-    # present on a full (present-connection/victoria-id) setup, so guard each.
-    for key in ~/.ssh/id_ed25519 ~/.ssh/pc-bitbucket ~/.ssh/victoria-github; do
+    # present on a full (victoria-id) setup, so guard each.
+    for key in ~/.ssh/id_ed25519 ~/.ssh/victoria-github; do
         [ -f "$key" ] && ssh-add "$key" 2>/dev/null
     done
 }

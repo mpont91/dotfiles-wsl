@@ -18,11 +18,8 @@
 [init]
 	defaultBranch = master
 
-[includeIf "gitdir:~/projects/victoria-id/"]
+[includeIf "hasconfig:remote.*.url:git@github.com:victoria-id/**"]
     path = ~/.gitconfig-victoria-id
-
-[includeIf "gitdir:~/projects/present-connection/"]
-    path = ~/.gitconfig-present-connection
 
 [url "git@github.com-victoria-id:victoria-id/"]
     insteadOf = git@github.com:victoria-id/

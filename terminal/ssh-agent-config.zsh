@@ -1,5 +1,5 @@
-# Persistent ssh-agent across terminals, so ssh-forwarded git/GitHub access
-# (see ssh/config.local) doesn't need a fresh `ssh-add` every shell.
+# Persistent ssh-agent across terminals, so git/GitHub access doesn't need a
+# fresh `ssh-add` every shell.
 SSH_ENV="$HOME/.ssh/agent.env"
 
 start_ssh_agent() {

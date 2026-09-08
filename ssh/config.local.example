@@ -1,4 +1,0 @@
-Host hostname.a.com hostname.b.com hostname.c.com
-    User root
-    IdentityFile ~/.ssh/id_ed25519
-    ForwardAgent yes

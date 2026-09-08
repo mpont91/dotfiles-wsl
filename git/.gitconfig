@@ -6,11 +6,11 @@
 	editor = vim
 	ignorecase = false
 
-[help]
-	autocorrect = 1
-
 [fetch]
 	prune = true
+
+[pull]
+	rebase = true
 
 [push]
 	autoSetupRemote = true

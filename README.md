@@ -2,45 +2,30 @@
 
 This repository contains my personal dotfiles to set up and maintain a clean development environment on Windows using WSL.
 
-## 🪟 Windows setup
-
-### WSL installation:
+## WSL installation:
 
 Open a powershell with admin rights and run: `wsl --install`  or `wsl --update` for troubleshooting.
 It will install automatically ubuntu distro which is fine.
 
-**For the next steps, open WSL and follow the instructions.**
-**Almost everything is intended to run inside WSL, otherwise will be indicated.**
+## SSH Configuration
 
-### SSH Configuration (personal, required)
+Restore `~/.ssh/id_ed25519` from password manager.
 
-Create or import from bitwarden your personal ssh-key at the default path:
+## Installation
 
-```bash
-ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519
-```
-
-Save the public key in your github account.
-
-## 🚀 Installation (inside WSL)
-
-First, clone this repository into your home directory with the default name `.dotfiles`:
+Clone this repository into your home directory with the default name `.dotfiles`:
 
 ```bash
 git clone git@github.com:mpont91/dotfiles-wsl.git ~/.dotfiles
 ```
 
-Then run the setup using the provided Makefile commands:
-
-## 🔧 Setup Steps (inside WSL)
-
-### 1. Install make
+### 0. Install make in case you don't have it
 
 ```bash
 sudo apt install make
 ```
 
-### 2. Install packages
+### 1. Install packages
 
 Installs all needed.
 
@@ -48,7 +33,7 @@ Installs all needed.
 make install
 ```
 
-### 3. Create config
+### 2. Apply configuration
 
 Links your configuration files (.zshrc, .aliases, .gitconfig, etc.) to your home directory and sets zsh as your default shell.
 
@@ -59,43 +44,58 @@ make config
 This covers the personal environment — everything you need on a
 personal-only machine.
 
-## 🏢 Victoria-id setup (optional, inside WSL)
+## 🏢 Victoria-id setup
 
 Only needed on a machine that also does victoria-id work.
 
 ### 1. SSH key
 
-```bash
-ssh-keygen -t ed25519 -f ~/.ssh/victoria-github
-```
-
-Save the public key in your victoria-id github account.
+Restore `~/.ssh/victoria-github` from password manager.
 
 ### 2. GPG signing
 
-Victoria-id commits must be GPG-signed.
+Victoria-id commits must be GPG-signed. Restore the key from the password manager.
 
-1. Create the gpg key:
+```bash
+gpg --import victoria-id.asc
+```
 
-   ```bash
-   gpg --full-generate-key
-   ```
+Then delete the file:
 
-2. To list all gpg entries
+```bash
+rm victoria-id-gpg-private.asc
+```
 
-   ```bash
-   gpg --list-secret-keys
-   ```
+The fingerprint doesn't change on import, so the `signingkey` already in
+`git/.gitconfig-victoria-id` keeps working without editing anything.
 
-3. Export public key (replace id key)
+<details>
+<summary>First time only — no existing key to restore yet</summary>
 
-   ```bash
-   gpg --armor --export AABBCCDD11223344
-   ```
+```bash
+gpg --full-generate-key
+gpg --list-secret-keys
+```
 
-4. Replace gitconfig file `git/.gitconfig-victoria-id`:
+Put the fingerprint as `signingkey` in `git/.gitconfig-victoria-id`, add the
+public key (`gpg --armor --export <fingerprint>`) to your victoria-id github
+account, then back up the private key so you never have to do this again:
 
-   `signingkey = AABBCCDD11223344`
+```bash
+gpg --export-secret-keys --armor <fingerprint> > victoria-id-gpg-private.asc
+cat victoria-id-gpg-private.asc
+```
+
+Copy everything printed, from `-----BEGIN PGP PRIVATE KEY BLOCK-----` to
+`-----END PGP PRIVATE KEY BLOCK-----` inclusive, into a password manager.
+
+Then delete the file:
+
+```bash
+rm victoria-id-gpg-private.asc
+```
+
+</details>
 
 ### 3. Link the victoria-id config
 

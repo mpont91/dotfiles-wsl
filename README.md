@@ -11,6 +11,18 @@ It will install automatically ubuntu distro which is fine.
 
 Restore `~/.ssh/id_ed25519` from password manager.
 
+<details>
+<summary>First time only — no existing key to restore yet</summary>
+
+```bash
+ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519
+```
+
+Save the public key in your github account, then back it up to your password
+manager so you never have to generate it again.
+
+</details>
+
 ## Installation
 
 Clone this repository into your home directory with the default name `.dotfiles`:
@@ -53,6 +65,18 @@ machine that also does victoria-id work: the two keys below.
 ### 1. SSH key
 
 Restore `~/.ssh/victoria-github` from password manager.
+
+<details>
+<summary>First time only — no existing key to restore yet</summary>
+
+```bash
+ssh-keygen -t ed25519 -f ~/.ssh/victoria-github
+```
+
+Save the public key in your victoria-id github account, then back it up to
+your password manager so you never have to generate it again.
+
+</details>
 
 ### 2. GPG signing
 

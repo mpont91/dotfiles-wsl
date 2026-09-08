@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eo pipefail
+
 echo "Configuring repositories..."
 
 sudo apt update

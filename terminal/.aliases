@@ -12,9 +12,10 @@ amend() {
   git add . && git commit --amend --no-edit
 }
 
-# Force push the current branch
+# Force push the current branch, but fail instead of clobbering if someone
+# else pushed since your last fetch
 force() {
-  git push --force
+  git push --force-with-lease
 }
 
 # Clean untracked files and reset all changes

@@ -1,5 +1,11 @@
 Include config.local
 
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519
+    IdentitiesOnly yes
+
 Host pdf-lib.github.com.alias.victoria-id.com
     HostName github.com
     User git

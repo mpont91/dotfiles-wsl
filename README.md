@@ -14,8 +14,7 @@ It will install automatically ubuntu distro which is fine.
 
 ### SSH Configuration (only personal environment)
 
-Create or import from bitwarden your personal ssh-key at the default path —
-no `ssh/config` entry needed, ssh picks it up automatically:
+Create or import from bitwarden your personal ssh-key at the default path:
 
 ```bash
 ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519

@@ -17,6 +17,8 @@ make config  # runs config.sh  — symlinks all dotfiles (personal + victoria-id
 
 Intended order on a fresh machine: `install` → `config` (matches the README). There's no separate victoria-id command — `config.sh` always symlinks `.gitconfig-victoria-id` too, since it's inert until a repo's remote actually matches victoria-id (see below). Victoria-id work only additionally needs its own SSH/GPG keys in place, which the README covers.
 
+`install.sh` doubles as the update path — there's no separate `update.sh`. Re-running `make install` on an already-configured machine both installs anything missing and updates anything already present (oh-my-zsh, its plugins, nvm, pyenv, the Claude CLI) to latest, since nothing here needs a pinned version. `apt upgrade -y` already covers the apt-installed packages on every run regardless.
+
 There is no lint/test tooling in this repo; changes are validated by re-running the relevant script (or reasoning through it) since these scripts are meant to be idempotent (checked with `[ -d ... ]` / `command -v` guards before installing or creating things).
 
 ## Architecture: the multi-identity model

@@ -78,7 +78,20 @@ your password manager so you never have to generate it again.
 
 </details>
 
-### 2. GPG signing
+### 2. GitHub CLI
+
+Log in both accounts in `gh` (it keeps several at once):
+
+```bash
+gh auth login   # personal account
+gh auth login   # victoria-id account
+```
+
+`make config` links a `gh` wrapper that picks the account from the repo's
+remote, like git does: victoria-id repos use the work account, everything else
+the personal one.
+
+### 3. GPG signing
 
 Victoria-id commits must be GPG-signed. Restore the key from the password manager, then delete the file:
 

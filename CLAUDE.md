@@ -34,6 +34,12 @@ When editing any of `git/.gitconfig*` or `ssh/config`, treat them as one unit: a
 
 Because a git `includeIf` and an SSH `Host` block are inert until something actually matches them (a repo with a matching remote, a clone using that host alias), a machine only ever needs the keys for the identity it actually uses — an unused `.gitconfig-*` / `ssh/config` entry just sits dormant. There is deliberately no `~/projects/<context>/` folder convention: which identity applies is a property of the repo's remote, not of where it's cloned.
 
+## `gh`: the same model, by remote
+
+`gh` keeps its own logins, separate from git and SSH: both GitHub accounts are logged in with `gh auth login` (personal `mpont91`, work `pc-mpont91`). `gh/gh`, linked by `config.sh` to `~/.local/bin/gh` (ahead of `/usr/bin/gh` in `PATH`), picks the account per command with the same rule as the git `includeIf`: if any remote of the current repo matches `github.com[:/]victoria-id/`, it runs as the work account, otherwise as the personal one, by exporting `GH_TOKEN` from `gh auth token --user <account>`. It reads the raw `remote.*.url` from git config, which is the unaliased form, as the `hasconfig` pattern does. `gh auth ...` and an already-set `GH_TOKEN` pass through untouched; an account that isn't logged in falls back to gh's active account. Outside any repo (e.g. `gh repo clone victoria-id/x` from `~`), it's the personal account, so cloning a work repo from there needs `cd` into a work repo first or `git clone` (SSH, unaffected).
+
+A change to the victoria-id org pattern belongs in `git/.gitconfig`, `ssh/config` and `gh/gh` together.
+
 ## Aliases: oh-my-zsh plugins first, `terminal/.aliases` only for what they don't cover
 
 Most one-letter git shortcuts (`g`, `ga`, `gco`, `gst`, `gd`, `gp`, `gl`, `gc`, `gc!`, `glg`, `gru`, `gb`, `gbd`, `gaa`, `gm`, `gcmsg`) come from the oh-my-zsh `git` plugin, and docker shortcuts (`dco`, `dcb`, `dcup`, ...) from `docker-compose` — both enabled in `terminal/.zshrc`'s `plugins=(...)`. `terminal/.aliases` (sourced *after* oh-my-zsh, so it silently overrides on any name collision) should only add things the plugins don't provide: `c`/`..`/`...` (basic navigation, no plugin equivalent), the workflow functions (`amend`, `force`, `nuke`, `undo` — no plugin equivalent), and `stash`/`pop`/`wip` (plugin has these under different names: `gsta`/`gstp`/`gwip`).

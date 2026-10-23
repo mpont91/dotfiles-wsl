@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Runs the real gh as the account that owns the current repo, the same way
+# git/.gitconfig picks the git identity: the work account when a remote points
+# at victoria-id, the personal one everywhere else. Both accounts are logged in
+# with `gh auth login`; which one is "active" no longer matters.
+
+GH=/usr/bin/gh
+PERSONAL_USER=mpont91
+VICTORIA_ID_USER=pc-mpont91
+
+# `gh auth` manages the accounts themselves: it must see them all, not a token.
+if [ "$1" != "auth" ] && [ -z "$GH_TOKEN" ]; then
+  user=$PERSONAL_USER
+  if git config --get-regexp '^remote\..*\.url$' 2>/dev/null |
+    grep -q 'github\.com[:/]victoria-id/'; then
+    user=$VICTORIA_ID_USER
+  fi
+  # If that account isn't logged in, fall back to gh's active account.
+  if token=$("$GH" auth token --user "$user" 2>/dev/null); then
+    export GH_TOKEN=$token
+  fi
+fi
+
+exec "$GH" "$@"

@@ -26,6 +26,12 @@ echo "Setting up ssh..."
 link_file "$DOTFILES/ssh/config" "$HOME/.ssh/config"
 echo
 
+# ─── GitHub CLI ─────────────────────────────────────────────────────────────
+echo "Setting up gh..."
+mkdir -p "$HOME/.local/bin"
+link_file "$DOTFILES/gh/gh" "$HOME/.local/bin/gh"
+echo
+
 # ─── Terminal ───────────────────────────────────────────────────────────────
 echo "Setting up terminal..."
 link_file "$DOTFILES/terminal/.aliases" "$HOME/.aliases"

@@ -37,6 +37,8 @@ sudo apt install -y \
     imagemagick \
     webp \
     sqlite3 \
+    sox \
+    libsox-fmt-pulse \
     gh \
     libssl-dev \
     zlib1g-dev \

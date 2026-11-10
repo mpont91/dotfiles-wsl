@@ -53,6 +53,10 @@ sudo apt install -y \
     libffi-dev \
     liblzma-dev \
     python3-openssl \
+    libnss3 \
+    libnspr4 \
+    fonts-liberation \
+    fonts-noto-color-emoji \
     docker-ce \
     docker-ce-cli \
     containerd.io \

@@ -19,6 +19,8 @@ Intended order on a fresh machine: `install` → `config` (matches the README). 
 
 `install.sh` doubles as the update path — there's no separate `update.sh`. Re-running `make install` on an already-configured machine both installs anything missing and updates anything already present (oh-my-zsh, its plugins, nvm, pyenv, the Claude CLI) to latest, since nothing here needs a pinned version. `apt upgrade -y` already covers the apt-installed packages on every run regardless.
 
+Most apt packages are tools used directly; a few are only libraries something else loads. `libnss3`, `libnspr4` and the two `fonts-*` are what Playwright's Chromium (downloaded per project by `npx playwright install`) needs to start and render text on WSL Ubuntu. They replace `npx playwright install-deps`, which needs Node, and nvm is installed after apt here.
+
 There is no lint/test tooling in this repo; changes are validated by re-running the relevant script (or reasoning through it) since these scripts are meant to be idempotent (checked with `[ -d ... ]` / `command -v` guards before installing or creating things).
 
 ## Architecture: the multi-identity model

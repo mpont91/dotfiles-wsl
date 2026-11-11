@@ -48,6 +48,12 @@ Most one-letter git shortcuts (`g`, `ga`, `gco`, `gst`, `gd`, `gp`, `gl`, `gc`, 
 
 **Do not name anything in `.aliases` `gcm`** — the git plugin already defines `gcm` as "checkout main branch"; a same-named alias here would silently shadow it. Same caution applies to `l`/`la`/`ll`: oh-my-zsh's core (not a plugin, always active) defines these unconditionally, so don't reintroduce them here unless deliberately overriding.
 
+## Node: the version follows `.nvmrc`
+
+`terminal/nvm-config.zsh` is the only place nvm is loaded. It registers nvm's `chpwd` hook (from nvm's README): on every `cd`, the shell switches to the version in the nearest `.nvmrc`, installs it first if it's missing, and goes back to nvm's `default` when no `.nvmrc` applies. Projects pin their Node there, so nothing here pins one.
+
+`install.sh` runs nvm's installer with `PROFILE=/dev/null`. Without it the installer appends its own loader to `~/.zshrc`, which is a symlink to `terminal/.zshrc` in this repo; loading `nvm.sh` a second time after the hook resets the shell to `default` and undoes the `.nvmrc` switch.
+
 ## `config.sh` symlink map
 
 `config.sh` is a flat list of `ln -sf` calls from files in this repo to `$HOME`. When adding a new dotfile to the repo, it is not picked up automatically — add an explicit `link_file` call in `config.sh`. Conversely, a file referenced in `config.sh` that doesn't exist in the repo will fail silently at link time (symlink to a non-existent target), so keep this list in sync with what's actually tracked here.

@@ -99,7 +99,9 @@ fi
 echo "Oh My Zsh plugins installation/update finished."
 
 echo "Installing/updating NVM (Node Version Manager)..."
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+# PROFILE=/dev/null: terminal/nvm-config.zsh loads nvm; without it the
+# installer appends its own loader to ~/.zshrc, which is this repo's file.
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | PROFILE=/dev/null bash
 echo "NVM installed/updated successfully!"
 
 echo "Installing/updating pyenv..."
